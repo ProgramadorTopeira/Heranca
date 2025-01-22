@@ -3,36 +3,35 @@
 #else 
 #define IS_LINUX false
 #endif
+// apos verificar se o sistema e linux ele prossegue
+// "ain MA TAMPINHA TA FEIO" EU SEI QUE TA FEIO MAS É ASSIM QUE ELE ACEITA O DEFINE
+// eu queria que fosse #define IS_LINUX defined(__linux__)
+// mas n tem como
 #include <iostream>
 #include "Veiculo.hpp"
 
 
 void Veiculo :: imp (){
+    // aqui se n tiver essa verificação vai dar erro de bash e o user n vai saber o pq
     if(!IS_LINUX) system ("cls");
     else system("clear");
     std :: cout << "********************************" << std :: endl;
-    std :: cout << "Velocidade Maxima: " << velMax << std :: endl;
-    std :: cout << "tipo do veiculo..: " << tipo << std :: endl;
-    std :: cout << "Qtde Rodas.......: " << rodas << std :: endl;
-    std :: cout << "Blindagem........: " << blind << std :: endl;
-    std :: cout << "armamento........: " << arma << std :: endl;
+    std :: cout << "Velocidade Maxima: " << this->velMax << std :: endl;
+    std :: cout << "tipo do veiculo..: " << this->tipo << std :: endl;
+    std :: cout << "Qtde Rodas.......: " << this->rodas << std :: endl;
+    std :: cout << "Blindagem........: " << this->blind << std :: endl;
+    std :: cout << "armamento........: " << this->arma << std :: endl;
     std :: cout << "********************************" << std :: endl;
 }
 
-void Veiculo :: setTipo(int tp){
+// evita separar tanto as coisas
+// os :: tudo bem é compreensivel (msm que eu n fizesse)
+// mas quando a funcao for uma linha so deixa ela assim que fica melhor de ler
 
-    tipo = tp;
+// usa mais a keyword this para acessar itens da classe
+// assim vc pode definir ate msm o mesmo nome do parametro como a variavel
+void Veiculo :: setTipo(int tipo){ this->tipo = tipo; };
 
-};
+void Veiculo :: setvelMax(int velocidadeMaxima){ this->velMax = velocidadeMaxima; };
 
-void Veiculo :: setvelMax(int vm){
-
-    velMax = vm;
-
-};
-
-void Veiculo :: setArma(bool ar){
-
-    arma = ar;
-
-};
+void Veiculo :: setArma(bool has_arma){ this->arma = has_arma; };

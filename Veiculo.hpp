@@ -1,4 +1,4 @@
-class Veiculo {
+class Veiculo { // isso é uma classe abstrata, justamente pelo fato de n ter um constructor
     public:
         int vel;
         int blind;
