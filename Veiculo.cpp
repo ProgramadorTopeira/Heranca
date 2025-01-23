@@ -1,20 +1,17 @@
 #ifdef __linux__
-#define IS_LINUX true
+#define CLEARCMD "clear"
 #else 
-#define IS_LINUX false
+#define CLEARCMD "cls"
 #endif
 // apos verificar se o sistema e linux ele prossegue
 // "ain MA TAMPINHA TA FEIO" EU SEI QUE TA FEIO MAS É ASSIM QUE ELE ACEITA O DEFINE
-// eu queria que fosse #define IS_LINUX defined(__linux__)
-// mas n tem como
 #include <iostream>
 #include "Veiculo.hpp"
 
 
 void Veiculo :: imp (){
     // aqui se n tiver essa verificação vai dar erro de bash e o user n vai saber o pq
-    if(!IS_LINUX) system ("cls");
-    else system("clear");
+    system (CLEARCMD);
     std :: cout << "********************************" << std :: endl;
     std :: cout << "Velocidade Maxima: " << this->velMax << std :: endl;
     std :: cout << "tipo do veiculo..: " << this->tipo << std :: endl;
